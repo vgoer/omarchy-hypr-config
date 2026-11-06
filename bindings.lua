@@ -93,3 +93,80 @@ o.rebind("SUPER + W", "Toggle floating/tiling", hl.dsp.window.float({
 
 
 o.bind("SUPER + C", "Close window", hl.dsp.window.close())
+
+
+-- =====================================
+-- Layouts
+-- =====================================
+
+local hy3 = hl.plugin.hy3
+
+-- SUPER + SHIFT + L writes the chosen layout to this state file, so the choice
+-- survives reloads, theme changes, and restarts. Default to hy3 while the
+-- plugin is available, which keeps the previous behaviour.
+local layout_names = { dwindle = true, scrolling = true, master = true, monocle = true, hy3 = true }
+local state_home = os.getenv("XDG_STATE_HOME")
+if not state_home or state_home == "" then
+    state_home = (os.getenv("HOME") or "") .. "/.local/state"
+end
+local layout = hy3 and "hy3" or "dwindle"
+local layout_file = io.open(state_home .. "/hypr/layout", "r")
+if layout_file then
+    local saved = layout_file:read("*l")
+    layout_file:close()
+    if saved and layout_names[saved] and (saved ~= "hy3" or hy3) then
+        layout = saved
+    end
+end
+
+hl.config({ general = { layout = layout } })
+
+o.bind("SUPER + SHIFT + L", "Layout picker", "$HOME/.config/hypr/scripts/layout-select.sh")
+
+-- hy3's focus/move bindings only make sense while hy3 is the active layout;
+-- otherwise Omarchy's default arrow bindings stay in place.
+if hy3 and layout == "hy3" then
+    -- Window focus
+    o.rebind("SUPER + LEFT", "Focus left",
+        hy3.move_focus("l"))
+
+    o.rebind("SUPER + RIGHT", "Focus right",
+        hy3.move_focus("r"))
+
+    o.rebind("SUPER + UP", "Focus up",
+        hy3.move_focus("u"))
+
+    o.rebind("SUPER + DOWN", "Focus down",
+        hy3.move_focus("d"))
+
+    -- Move windows
+    o.rebind("SUPER + SHIFT + LEFT", "Move window left",
+        hy3.move_window("l", { once = true }))
+
+    o.rebind("SUPER + SHIFT + RIGHT", "Move window right",
+        hy3.move_window("r", { once = true }))
+
+    o.rebind("SUPER + SHIFT + UP", "Move window up",
+        hy3.move_window("u", { once = true }))
+
+    o.rebind("SUPER + SHIFT + DOWN", "Move window down",
+        hy3.move_window("d", { once = true }))
+
+    -- Create groups
+    o.bind("SUPER + CTRL + H", "Horizontal split",
+        hy3.make_group("h"))
+
+    o.bind("SUPER + CTRL + V", "Vertical split",
+        hy3.make_group("v"))
+
+    o.bind("SUPER + CTRL + T", "Tab group",
+        hy3.make_group("tab"))
+
+    -- Toggle split direction
+    o.bind("SUPER + CTRL + O", "Toggle split direction",
+        hy3.change_group("opposite"))
+
+    -- Equalize window sizes
+    o.bind("SUPER + CTRL + E", "Equalize windows",
+        hy3.equalize({ scope = "group" }))
+end
