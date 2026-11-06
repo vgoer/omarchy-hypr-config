@@ -20,6 +20,7 @@ require("hypr.monitors")
 require("hypr.input")
 -- Official custom grid layout, selectable as "lua:grid".
 require("hypr.layouts.grid")
+require("hypr.layouts.columns")
 require("hypr.bindings")
 require("hypr.looknfeel")
 require("hypr.autostart")

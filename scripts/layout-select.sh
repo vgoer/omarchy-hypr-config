@@ -10,8 +10,8 @@ set -euo pipefail
 state_home="${XDG_STATE_HOME:-$HOME/.local/state}"
 state_file="$state_home/hypr/layout"
 
-layouts=(dwindle scrolling master monocle hy3 lua:grid)
-labels=(Dwindle Scrolling Master Monocle hy3 Grid)
+layouts=(dwindle scrolling master monocle hy3 lua:grid lua:columns)
+labels=(Dwindle Scrolling Master Monocle hy3 Grid Columns)
 
 current="$(hyprctl getoption -j general:layout 2>/dev/null | jq -r '.str // empty' || true)"
 if [[ -z $current && -r $state_file ]]; then
@@ -37,6 +37,7 @@ case "$choice" in
   Monocle) layout=monocle ;;
   hy3) layout=hy3 ;;
   Grid) layout=lua:grid ;;
+  Columns) layout=lua:columns ;;
   *) exit 0 ;;
 esac
 

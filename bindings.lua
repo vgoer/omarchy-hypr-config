@@ -104,7 +104,7 @@ local hy3 = hl.plugin.hy3
 -- SUPER + SHIFT + L writes the chosen layout to this state file, so the choice
 -- survives reloads, theme changes, and restarts. Default to hy3 while the
 -- plugin is available, which keeps the previous behaviour.
-local layout_names = { dwindle = true, scrolling = true, master = true, monocle = true, hy3 = true, ["lua:grid"] = true }
+local layout_names = { dwindle = true, scrolling = true, master = true, monocle = true, hy3 = true, ["lua:grid"] = true, ["lua:columns"] = true }
 local state_home = os.getenv("XDG_STATE_HOME")
 if not state_home or state_home == "" then
     state_home = (os.getenv("HOME") or "") .. "/.local/state"
