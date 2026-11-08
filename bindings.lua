@@ -83,9 +83,9 @@ o.rebind("SUPER + SHIFT + RETURN", "Floating Terminal", {
     launch = "kitty --class kitty"
 })
 
-o.bind("SUPER + SHIFT + T", "btop", {
-    launch = "kitty --class btop-float btop"
-})
+-- o.bind("SUPER + SHIFT + T", "btop", {
+--    launch = "kitty --class btop-float btop"
+-- })
 
 o.rebind("SUPER + W", "Toggle floating/tiling", hl.dsp.window.float({
     action = "toggle"
@@ -93,6 +93,9 @@ o.rebind("SUPER + W", "Toggle floating/tiling", hl.dsp.window.float({
 
 
 o.bind("SUPER + C", "Close window", hl.dsp.window.close())
+
+
+-- 粘贴板 / clipboard
 
 
 -- =====================================
