@@ -17,7 +17,7 @@ end
 
 -- ── Drawers ─────────────────────────────────────────────────────────────────
 
-o.bind("SUPER + A", "Omacale launcher", "omarchy-shell omacale launcher")
+o.rebind("SUPER + A", "Omacale launcher", "omarchy-shell omacale launcher")
 o.bind("SUPER + D", "Omacale dashboard", "omarchy-shell omacale dashboard")
 o.bind("SUPER + N", "Omacale notifications sidebar", "omarchy-shell omacale sidebar")
 o.bind("SUPER + U", "Omacale quick toggles", "omarchy-shell omacale utilities")
