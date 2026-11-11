@@ -76,12 +76,15 @@ o.bind("SUPER + CTRL + code:19", "Omacale bar focus", "omarchy-shell omacale bar
 -- my add
 -- Essential application bindings.
 o.rebind("SUPER + RETURN", "Terminal",{
-  omarchy = "terminal"
+    omarchy = "terminal"
 })
 
 o.rebind("SUPER + SHIFT + RETURN", "Floating Terminal", {
     launch = "kitty --class kitty"
 })
+
+o.rebind("SUPER + Q", "Browser", { omarchy = "browser" })
+
 
 -- o.bind("SUPER + SHIFT + T", "btop", {
 --    launch = "kitty --class btop-float btop"
