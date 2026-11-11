@@ -3,6 +3,29 @@
 
 -- Keyboard layout and options.
 -- See https://wiki.hypr.land/Configuring/Basics/Variables/#input
+
+hl.config({
+  input = {
+    touchpad = {
+      -- 自然滚动（类似 macOS）
+      natural_scroll = true,
+
+      -- 双指轻触作为右键
+      clickfinger_behavior = true,
+
+      -- 触控板滚动速度
+      scroll_factor = 0.5,
+
+      -- 允许边打字边使用触控板
+      disable_while_typing = false,
+
+      -- 三指拖动
+      drag_3fg = 1,
+    },
+  },
+})
+
+
 -- hl.config({
 --   input = {
 --     -- Use multiple keyboard layouts and switch between them with Left Alt + Right Alt.
