@@ -144,7 +144,7 @@ local function universal_clipboard_shortcut(default_mods, default_key, terminal_
 end
 
 o.bind("CTRL + A", "Select all", send_shortcut_once("CTRL", "A"))
-o.bind("CTRL + C", "Universal copy", universal_clipboard_shortcut("CTRL", "C", "CTRL SHIFT", "C"))
+o.bind("CTRL + SHIFT + C", "Universal copy", universal_clipboard_shortcut("CTRL", "C", "CTRL SHIFT", "C"))
 o.bind("CTRL + V", "Universal paste", universal_clipboard_shortcut("CTRL", "V", "CTRL SHIFT", "V"))
 o.bind("CTRL + X", "Universal cut", send_shortcut_once("CTRL", "X"))
 o.bind("CTRL + SHIFT + V", "Clipboard manager", { panel = "omarchy.clipboard" })
