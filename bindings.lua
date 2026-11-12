@@ -28,6 +28,7 @@ o.bind("SUPER + SHIFT + I", "Omacale settings", "omarchy-shell omacale settings"
 
 o.bind("SUPER + ALT + D", "Omacale media", "omarchy-shell omacale dashboardTab media")
 o.bind("SUPER + ALT + P", "Omacale performance", "omarchy-shell omacale dashboardTab performance")
+o.bind("SUPER + E", "File manager", { omarchy = "nautilus" })
 
 -- ── Keyboard ────────────────────────────────────────────────────────────────
 -- Omarchy's own SUPER + CTRL + A/B/W/P and 1..9 already open Omacale's popouts
